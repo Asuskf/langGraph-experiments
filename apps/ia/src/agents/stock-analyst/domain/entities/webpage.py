@@ -8,5 +8,5 @@ class WebPage:
     url: URL
     html_content: HTMLContent
 
-    def update_content(self, new_html_content: HTMLContent):
+    def update_content(self, new_html_content: HTMLContent) -> None:
         self.html_content = new_html_content
