@@ -1,6 +1,6 @@
-# 🧠 Yahoo Finance News Scraper & Analyzer with LangChain
+# 🧠 Investing URL news scraper & analyzer with LangChain
 
-This project is part of a DDD-driven initiative to build an **automated daily financial news analyzer**. It scrapes investment-related news from **Yahoo Finance**, uses **LangChain + LLMs** to analyze the potential market impact of each article, and generates a structured daily report with recommendations on specific stocks.
+This project is part of a DDD-driven initiative to build an **automated daily financial news analyzer**. It scrapes investment-related news from **Investing**, uses **LangChain + LLMs** to analyze the potential market impact of each article, and generates a structured daily report with recommendations on specific stocks.
 
 ---
 
@@ -10,7 +10,7 @@ This project is part of a DDD-driven initiative to build an **automated daily fi
 
 To build an automated system that:
 
-- Scrapes daily investment news from **Yahoo Finance**
+- Scrapes daily investment news from **Investing**
 - Analyzes the content using a **LLM via LangChain**
 - Generates a report with the **potential impact and stock recommendations**
 
@@ -21,7 +21,7 @@ To build an automated system that:
 #### 🔐 Token Validator
 Checks whether the LLM (or other required services) are accessible before running the job.
 
-#### 🌐 Yahoo Finance Scraper
+#### 🌐 Investing Scraper
 Extracts:
 - Headlines
 - Article body
@@ -45,7 +45,7 @@ Aggregates all LLM responses into a single output file:
 
 | Business Term       | Description                                                                 |
 |---------------------|-----------------------------------------------------------------------------|
-| Target Page         | Yahoo Finance news section                                                  |
+| Target Page         | Investing news section                                                  |
 | Article             | A single news item (title, date, body, ticker)                              |
 | LLM Document        | A structured text document that LangChain can process                       |
 | Analysis Prompt     | Instruction guiding the LLM to assess the potential impact of the article   |
@@ -59,7 +59,7 @@ Aggregates all LLM responses into a single output file:
 
 Consistent phrases used across the codebase, documentation, and prompts:
 
-- "Run the daily **scrape job** from Yahoo Finance."
+- "Run the daily **scrape job** from Investing."
 - "Convert articles into **LangChain documents**."
 - "Analyze each document using a **financial prompt**."
 - "Generate the **daily report** with LLM-based recommendations."
@@ -73,10 +73,10 @@ Consistent phrases used across the codebase, documentation, and prompts:
 - **Frequency**: Once per day (e.g., via `cron` or scheduled script)
 - **Interaction**: Command-line interface (CLI)
 - **Output format**: `.json`, `.txt`, `.pdf`, `.md` (configurable)
-- **Legal restrictions**: None identified (but advisable to review Yahoo Finance's terms of service)
+- **Legal restrictions**: None identified (but advisable to review Investing's terms of service)
 
 ---
 
 ## ✅ Step 1 Conclusion
 
-> "We are building an intelligent financial scraper that collects Yahoo Finance articles, automatically analyzes them using an LLM to assess their impact on specific stocks, and generates a daily report with recommendations — all orchestrated with LangChain."
+> "We are building an intelligent financial scraper that collects Investing articles, automatically analyzes them using an LLM to assess their impact on specific stocks, and generates a daily report with recommendations — all orchestrated with LangChain."
