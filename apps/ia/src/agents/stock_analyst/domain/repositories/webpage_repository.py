@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
-from domain.entities.webpage import WebPage
-from typing import List
+
+from stock_analyst.domain.entities.webpage import WebPage
+
 
 class WebPageRepository(ABC):
 
@@ -13,5 +14,5 @@ class WebPageRepository(ABC):
         pass
 
     @abstractmethod
-    def list_all(self) -> List[WebPage]:
+    def list_all(self) -> list[WebPage]:
         pass

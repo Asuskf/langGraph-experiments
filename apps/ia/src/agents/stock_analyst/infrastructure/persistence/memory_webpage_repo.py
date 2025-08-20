@@ -1,11 +1,11 @@
-from typing import Dict
-from domain.entities.webpage import WebPage
-from domain.repositories.webpage_repository import WebPageRepository
+
+from stock_analyst.domain.entities.webpage import WebPage
+from stock_analyst.domain.repositories.webpage_repository import WebPageRepository
 
 
 class InMemoryWebPageRepository(WebPageRepository):
     def __init__(self):
-        self.storage: Dict[str, WebPage] = {}
+        self.storage: dict[str, WebPage] = {}
 
     def save(self, webpage: WebPage) -> None:
         self.storage[str(webpage.id)] = webpage

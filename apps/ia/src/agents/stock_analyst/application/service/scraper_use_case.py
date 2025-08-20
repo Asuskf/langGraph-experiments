@@ -1,7 +1,7 @@
-from domain.repositories.webpage_repository import WebPageRepository
-from domain.value_objects.html_content import HTMLContent 
-from application.dto.webpage_dto import WebPageDTO
-from application.mapper.webpage_mapper import to_dto, from_dto
+from stock_analyst.application.dto.webpage_dto import WebPageDTO
+from stock_analyst.application.mapper.webpage_mapper import from_dto, to_dto
+from stock_analyst.domain.repositories.webpage_repository import WebPageRepository
+from stock_analyst.domain.value_objects.html_content import HTMLContent
 
 
 class ScraperUseCase:

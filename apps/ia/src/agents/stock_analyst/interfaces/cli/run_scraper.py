@@ -1,9 +1,13 @@
 import argparse
-from infrastructure.persistence.memory_webpage_repo import InMemoryWebPageRepository
 
-
-"""from infrastructure.persistence.memory_webpage_repo import InMemoryWebPageRepository
-from infrastructure.external.beautifulsoup_scraper import BeautifulSoupScraper
+from stock_analyst.application.mapper.webpage_mapper import to_dto
+from stock_analyst.application.service.scraper_use_case import ScraperUseCase
+from stock_analyst.infrastructure.external.beautifulsoup_scraper import (
+    BeautifulSoupScraper,
+)
+from stock_analyst.infrastructure.persistence.memory_webpage_repo import (
+    InMemoryWebPageRepository,
+)
 
 
 def main():
@@ -24,7 +28,7 @@ def main():
         use_case.save_webpage(to_dto(webpage))
 
         # Mostrar resumen
-        print(f"✅ WebPage guardada:")
+        print("✅ WebPage guardada:")
         print(f"ID: {webpage.id}")
         print(f"URL: {webpage.url.value}")
         print(f"HTML size: {len(webpage.html_content.content)} characters")
@@ -34,4 +38,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()"""
+    main()

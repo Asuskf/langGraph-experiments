@@ -1,7 +1,7 @@
-from domain.entities.webpage import WebPage
-from domain.value_objects.url import URL
-from domain.value_objects.html_content import HTMLContent
-from application.dto.webpage_dto import WebPageDTO
+from stock_analyst.application.dto.webpage_dto import WebPageDTO
+from stock_analyst.domain.entities.webpage import WebPage
+from stock_analyst.domain.value_objects.html_content import HTMLContent
+from stock_analyst.domain.value_objects.url import URL
 
 
 def to_dto(webpage: WebPage) -> WebPageDTO:

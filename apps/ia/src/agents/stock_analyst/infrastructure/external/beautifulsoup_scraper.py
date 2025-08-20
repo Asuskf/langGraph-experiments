@@ -1,9 +1,10 @@
+import uuid
+
 import requests
 from bs4 import BeautifulSoup
-from domain.entities.webpage import WebPage
-from domain.value_objects.url import URL
-from domain.value_objects.html_content import HTMLContent
-import uuid
+from stock_analyst.domain.entities.webpage import WebPage
+from stock_analyst.domain.value_objects.html_content import HTMLContent
+from stock_analyst.domain.value_objects.url import URL
 
 
 class BeautifulSoupScraper:

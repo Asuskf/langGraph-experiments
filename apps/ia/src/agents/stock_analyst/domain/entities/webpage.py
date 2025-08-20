@@ -1,6 +1,8 @@
 from dataclasses import dataclass
-from domain.value_objects.url import URL
-from domain.value_objects.html_content import HTMLContent
+
+from stock_analyst.domain.value_objects.html_content import HTMLContent
+from stock_analyst.domain.value_objects.url import URL
+
 
 @dataclass
 class WebPage:
