@@ -1,10 +1,16 @@
-from dataclasses import dataclass
+from pydantic import BaseModel, model_validator
 
 
-@dataclass(frozen=True)
-class HTMLContent:
+class HTMLContent(BaseModel):
     content: str
 
-    def __post_init__(self):
-        if not self.content.strip():
-            raise ValueError("El contenido HTML no puede estar vacío")
+    @model_validator(mode="before")  # Se ejecuta antes de crear el modelo
+    def check_content_not_empty(cls, values):
+        content = values.get("content")
+        if not content or not content.strip():
+            raise ValueError("The HTML content cannot be empty.")
+        return values
+
+    model_config = {
+        "frozen": True  # Hace que el modelo sea inmutable
+    }

@@ -17,6 +17,6 @@ class BeautifulSoupScraper:
 
         return WebPage(
             id=str(uuid.uuid4()),
-            url=URL(url),
-            html_content=HTMLContent(cleaned_html)
+            url=URL(value=url),
+            html_content=HTMLContent(content=cleaned_html)
         )

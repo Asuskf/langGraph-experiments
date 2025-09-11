@@ -1,12 +1,15 @@
 import re
-from dataclasses import dataclass
+
+from pydantic import BaseModel, model_validator
 
 
-@dataclass(frozen=True)
-class URL:
+class URL(BaseModel, frozen=True):
     value: str
 
-    def __post_init__(self):
+    @model_validator(mode="before")
+    def validate_url(cls, values):
+        url = values.get("value")
         pattern = re.compile(r"^https?://[^\s/$.?#].[^\s]*$")
-        if not pattern.match(self.value):
-            raise ValueError(f"URL inválida: {self.value}")
+        if not url or not pattern.match(url):
+            raise ValueError(f"Invalid URL: {url}")
+        return values

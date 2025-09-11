@@ -17,11 +17,9 @@ def main():
     
     try:
         console.print(f"🔍 Scrapeando la URL: [bold blue]{args.url}[/bold blue] ...")
-        print(args.url)
         result = scraper.scrape(args.url)
-
         # Contar párrafos usando etiquetas <p>
-        html_content = getattr(result.html_content, "content", "")
+        html_content = result.html_content
         # Buscar todas las etiquetas <p> en el HTML
         paragraphs = re.findall(r"<p[^>]*>(.*?)</p>", html_content, re.DOTALL)
         num_paragraphs = len(paragraphs)
@@ -32,7 +30,6 @@ def main():
         table.add_column("Valor", style="magenta")
 
         table.add_row("ID", str(getattr(result, "id", "N/A")))
-        table.add_row("URL", getattr(result.url, "value", "N/A"))
         table.add_row("HTML size", f"{len(html_content)} caracteres")
         table.add_row("Número de párrafos", str(num_paragraphs))
 

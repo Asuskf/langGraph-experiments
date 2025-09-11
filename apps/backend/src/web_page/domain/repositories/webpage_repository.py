@@ -6,7 +6,7 @@ from web_page.domain.entities.webpage import WebPage
 class WebPageRepository(ABC):
     
     @abstractmethod
-    def save_webpage(self, webpage: WebPage) -> None:
+    def save_webpage(self, webpage: WebPage, filename: str) -> None:
         pass
     
     @abstractmethod

@@ -6,14 +6,14 @@ from web_page.domain.value_objects.url import URL
 
 def to_dto_webpage(webpage: WebPage) -> WebPageDTO:
     return WebPageDTO(
-        id=str(webpage.id),
-        url=webpage.url.value,
-        html_content=webpage.html_content.content
+        id = str(webpage.id),
+        url = webpage.url.value,
+        html_content = webpage.html_content.content
     )
 
 def from_dto_webpage(dto: WebPageDTO) -> WebPage:
     return WebPage(
-        id=dto.id,
-        url=URL(dto.url),
-        html_content=HTMLContent(dto.html_content)
+        id = dto.id,
+        url = URL(value=dto.url),
+        html_content = HTMLContent(content=dto.html_content)
     )
