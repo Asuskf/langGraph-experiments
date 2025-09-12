@@ -10,4 +10,12 @@ class FileTxtAdapter(FilePort):
     def save_file_txt(self, name_file: str, content: str):
         txt_file = self.new_file.save_file(name_file, content)
         return to_dto_path_file(txt_file)
+    
+    def read_file_txt(self, name_file):
+        txt_file = self.new_file.get_file_by_file_name(name_file)
+        return txt_file
+    
+    def drop_file_txt(self, name_file):
+        drop_file = self.new_file.drop_file(name_file)
+        return drop_file
 

@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 from web_page.domain.entities.files import TxtFiles
@@ -26,11 +27,21 @@ class FileTxt(PathRepository):
         )
     
     
-    def get_file_by_path(self, file_path: str) -> TxtFiles:
-        pass
+    def get_file_by_file_name(self, filename: str) -> TxtFiles:
+        final_path = f"{self.base_path}/{filename}"
+        with open(final_path, encoding="utf-8") as f:
+            content = f.read()
+        return content
     
     
-    def drop_file(self, file_path: str) -> bool:
-        pass
+    def drop_file(self, file_name: str) -> bool:
+        final_path = f"{self.base_path}/{file_name}"
+        if os.path.exists(final_path):
+            os.remove(final_path)
+            print(f"File '{final_path}' deleted successfully.")
+            return True
+        else:
+            print(f"The file '{final_path}' does not exist.")
+            return False
     
         

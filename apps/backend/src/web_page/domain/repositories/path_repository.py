@@ -9,9 +9,9 @@ class PathRepository(ABC):
         pass
     
     @abstractmethod
-    def get_file_by_path(self, file_path: str) -> TxtFiles:
+    def get_file_by_file_name(self, file_name: str) -> str:
         pass
     
     @abstractmethod
-    def drop_file(self, file_path: str) -> bool:
+    def drop_file(self, file_name: str) -> bool:
         pass
