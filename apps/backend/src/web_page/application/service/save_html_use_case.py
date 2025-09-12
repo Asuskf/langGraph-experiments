@@ -1,11 +1,11 @@
-from web_page.domain.entities.webpage import HTMLContent
-from web_page.domain.repositories.webpage_repository import WebPageRepository
+from web_page.domain.entities.files import TxtFiles
+from web_page.domain.repositories.path_repository import PathRepository
 
 
 class SaveHTMLUseCase:
-    def __init__(self, repositorie_web_page: WebPageRepository):
-        self.repositorie_web_page = repositorie_web_page
+    def __init__(self, repositorie_path: PathRepository):
+        self.repositorie_path = repositorie_path
         
     def execute(self, html_content: str, filename: str) -> None:
-        content = HTMLContent(content=html_content)
-        self.repositorie_web_page.save_webpage(content, filename)
+        content = TxtFiles(content=html_content)
+        self.repositorie_path.save_file(content)

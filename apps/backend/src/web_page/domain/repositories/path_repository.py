@@ -5,7 +5,7 @@ from web_page.domain.entities.files import TxtFiles
 
 class PathRepository(ABC):
     @abstractmethod
-    def save_file(self, txt_file: TxtFiles) -> None:
+    def save_file(self, txt_file: TxtFiles) -> TxtFiles:
         pass
     
     @abstractmethod

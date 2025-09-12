@@ -7,9 +7,9 @@ from web_page.domain.value_objects.path import FilePath
 
 def to_dto_path_file(txt_file: TxtFiles) -> PathDTO:
     return PathDTO(
-        path = txt_file.path,
-        file_name = txt_file.file_name,
-        html_content = txt_file.html_content
+        path = str(txt_file.path.path),
+        file_name = txt_file.file_name.value,
+        html_content = txt_file.html_content.content 
     )
     
 def from_dto_path_file(dto: PathDTO) -> TxtFiles:

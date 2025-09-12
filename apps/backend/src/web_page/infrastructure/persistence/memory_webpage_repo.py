@@ -12,7 +12,7 @@ class InMemoryWebPageRepository(WebPageRepository):
 
     def get_webpage_by_id(self, webpage_id: str) -> WebPage:
         if webpage_id not in self.storage:
-            raise ValueError(f"WebPage con ID '{webpage_id}' no encontrada")
+            raise ValueError(f"WebPage with ID '{webpage_id}' not found")
         return self.storage[webpage_id]
 
     def list_webpages(self) -> list[WebPage]:
