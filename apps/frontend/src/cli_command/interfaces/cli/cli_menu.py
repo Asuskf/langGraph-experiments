@@ -1,6 +1,6 @@
+from cli_command.application.cli_service import CliService
 from rich.console import Console
 from rich.prompt import Prompt
-from cli_command.application.cli_service import CliService
 
 console = Console()
 

@@ -1,4 +1,3 @@
-import argparse
 import os
 import re
 from pathlib import Path
@@ -6,18 +5,14 @@ from pathlib import Path
 from dotenv import load_dotenv
 from rich.console import Console
 from rich.table import Table
-from web_page.application.ports.file_port import FilePort
-from web_page.application.ports.scraper_port import ScraperPort
 from web_page.infrastructure.adapters.file_apdapter import FileTxtAdapter
 from web_page.infrastructure.adapters.scraper_adapter import BeautifulSoupScraperAdapter
-
 
 console = Console()
 load_dotenv()
 base_dir = Path(__file__).resolve().parent  
 project_root = base_dir.parents[2]
 PATH_FOLDER = os.getenv("DATA_FOLDER_WEB")
-
 class CliService:
     def __init__(self):
         self.scraper = BeautifulSoupScraperAdapter()
