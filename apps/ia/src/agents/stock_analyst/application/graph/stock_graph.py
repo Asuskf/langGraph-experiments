@@ -1,23 +1,23 @@
 from typing import TypedDict
 
 from langgraph.graph import StateGraph
-from stock_analyst.application.dto.content_dto import ContentDTO
-from stock_analyst.application.mapper.content_mapper import to_dto_content
+from stock_analyst.application.mapper.content_mapper import ContentDTO, ContentMapper
 from stock_analyst.domain.repositories.stock_repository import StockRepository
 
 
 class StockState(TypedDict):
-    content = ContentDTO
-def fetch_content_node(state: StockState, repository: StockRepository):
-    # Llamamos al repository para obtener la entidad de dominio
-    domain_obj = repository.get_analysis("AAPL")  # ejemplo con ticker fijo, se puede parametrizar
+    content: ContentDTO
 
-    # Convertimos la entidad de dominio a DTO
-    dto = to_dto_content(domain_obj)
 
-    # Retornamos el nuevo estado
+def analyse_node(state: StockState, repository: StockRepository):
+    entity = ContentMapper.to_entity(state["content"])
+    analysed_entity = repository.analyse(entity)
+    dto = ContentMapper.to_dto(analysed_entity)
     return {"content": dto}
 
-def stock_analize(repository: StockRepository):
+def build_stock_graph(repository: StockRepository):
     graph = StateGraph(StockState)
-    graph.add_node("fetch_content" , lambda s: fetch_content_node(s, repository))
+    graph.add_node("analyse", lambda s: analyse_node(s, repository))
+    graph.set_entry_point("analyse")
+    graph.set_finish_point("analyse")
+    return graph.compile()

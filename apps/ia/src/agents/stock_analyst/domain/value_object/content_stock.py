@@ -9,7 +9,7 @@ class ContentStock(BaseModel, frozen=True):
         content = values
         if isinstance(content, dict):
             content = values.get("content")
-        if len(content) > 0:
+        if len(content.strip()) > 0:
             raise ValueError("The content cannot be empty.")
         return values
     model_config = {
