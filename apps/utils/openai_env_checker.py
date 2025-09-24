@@ -1,9 +1,8 @@
-from pathlib import Path
-from pydantic_settings import BaseSettings
-from pydantic import ValidationError
-from pydantic import  field_validator
 import logging
-from typing import List
+from pathlib import Path
+
+from pydantic import ValidationError, field_validator
+from pydantic_settings import BaseSettings
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
@@ -49,13 +48,12 @@ class OpenAIEnvChecket:
     
     def _suggest_possible_misnamed_files(self) -> None:
         """Suggest files that might be misnamed .env files."""
-        possible_files: List[Path] = list(self.parent_dir.glob("*.env"))
+        possible_files: list[Path] = list(self.parent_dir.glob("*.env"))
         if possible_files:
             logging.warning("No '.env' file found, but the following files containing '.env' were detected:")
             for file in possible_files:
                 logging.info(f" -> {file.name}")
                 
 if __name__ == "__main__":
-
     checker = OpenAIEnvChecket()
     checker.check_env_file()

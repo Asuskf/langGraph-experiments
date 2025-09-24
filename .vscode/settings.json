@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./apps/backend/src",
+        "./apps/ia/src/agents"
+    ]
+}
