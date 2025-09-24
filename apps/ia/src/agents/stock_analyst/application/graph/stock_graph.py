@@ -10,9 +10,9 @@ class StockState(TypedDict):
 
 
 def analyse_node(state: StockState, repository: StockRepository):
-    entity = ContentMapper.to_entity(state["content"])
+    entity = ContentMapper.from_dto_content(state["content"])
     analysed_entity = repository.analyse(entity)
-    dto = ContentMapper.to_dto(analysed_entity)
+    dto = ContentMapper.to_dto_content(analysed_entity)
     return {"content": dto}
 
 def build_stock_graph(repository: StockRepository):

@@ -8,15 +8,15 @@ from rich.table import Table
 from web_page.infrastructure.adapters.file_apdapter import FileTxtAdapter
 from web_page.infrastructure.adapters.scraper_adapter import BeautifulSoupScraperAdapter
 from stock_analyst.infrastructure.adapters.stock_adapter import StockAdapter
-from stock_analyst.application.graph.stock_graph import build_stock_graph
 from stock_analyst.application.dto.content_dto import ContentDTO
-
+from stock_analyst.application.graph.stock_graph import analyse_node
 
 console = Console()
 load_dotenv()
 base_dir = Path(__file__).resolve().parent  
 project_root = base_dir.parents[2]
 PATH_FOLDER = os.getenv("DATA_FOLDER_WEB")
+repository = StockAdapter()
 class CliService:
     def __init__(self):
         self.scraper = BeautifulSoupScraperAdapter()
@@ -47,7 +47,10 @@ class CliService:
 
     def read_file(self, name: str):
         content = self.file_txt.read_file_txt(name)
-        console.print(content[:500] + "..." if content else "❌ File not found")
+        dto = ContentDTO(value=content, analysis=None)
+        result = analyse_node({"content": dto}, repository=repository)
+        print(result)
+        #console.print(content[:500] + "..." if content else "❌ File not found")
 
     def delete_file(self, name: str):
         success = self.file_txt.drop_file_txt(name)
