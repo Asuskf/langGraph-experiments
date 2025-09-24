@@ -5,11 +5,11 @@ from pathlib import Path
 from dotenv import load_dotenv
 from rich.console import Console
 from rich.table import Table
-from web_page.infrastructure.adapters.file_apdapter import FileTxtAdapter
-from web_page.infrastructure.adapters.scraper_adapter import BeautifulSoupScraperAdapter
-from stock_analyst.infrastructure.adapters.stock_adapter import StockAdapter
 from stock_analyst.application.dto.content_dto import ContentDTO
 from stock_analyst.application.graph.stock_graph import analyse_node
+from stock_analyst.infrastructure.adapters.stock_adapter import StockAdapter
+from web_page.infrastructure.adapters.file_apdapter import FileTxtAdapter
+from web_page.infrastructure.adapters.scraper_adapter import BeautifulSoupScraperAdapter
 
 console = Console()
 load_dotenv()
